@@ -1,0 +1,32 @@
+/*utility*/
+.img-round{
+    border-radius: 50%;
+}
+.c-pointer{
+    cursor: pointer;
+}
+
+.square-img {
+    position: relative;
+    /*width: 37%; !* The size you want *!*/
+}
+.square-img:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%; /* The padding depends on the width, not on the height, so with a padding-bottom of 100% you will get a square */
+}
+.square-img img {
+    position: absolute;
+     top: 0;
+    bottom: 0;
+    left: 10%;
+    right: 0;
+    width: 80%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;}
+
+.my-link,.my-link:hover{
+    text-decoration: none!important;
+    color: currentColor;
+}

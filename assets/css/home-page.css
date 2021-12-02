@@ -1,0 +1,20 @@
+
+.section-intro__bgImg{
+    background: url(../images/home-1.jpg),linear-gradient(
+            180deg,#000000 2%,#ffffff00 100%);
+    background-size: cover;
+    height: 100vh;
+    background-blend-mode: overlay;
+}
+.section-intro__content{
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.section-intro__heading{
+    color: white;
+    font-size: 6rem;
+    font-family: 'Pacifico', cursive;
+    margin-bottom: 50px;
+}
