@@ -106,9 +106,12 @@ $recentChats = Messages::getRecentChats($userId);
                                         ?>
                                         <div class="row wink">
                                             <div class="col-5 square-img">
-                                                <img class="img-fluid img-round"
+                                                <a class="c-pointer"
+                                                   href="../Home-Pages/usersProfilePage.php?id=<?=$notification["ID"]?>">
+                                                <img class="img-fluid img-round "
                                                      src="<?= BASE_URL . $notification["profileImage"] ?>"
                                                      alt="<?= $notification["first_name"] . " " . $notification["last_name"] ?>">
+                                                </a>
                                             </div>
                                             <div class="col-7 pl-1">
                                                 <div class="wink__name">
@@ -164,9 +167,12 @@ $recentChats = Messages::getRecentChats($userId);
                                     ?>
                                     <div class="row wink">
                                         <div class="col-5 square-img">
+                                            <a class="c-pointer"
+                                               href="../Home-Pages/usersProfilePage.php?id=<?=$wink["ID"]?>">
                                             <img class="img-fluid img-round"
                                                  src="<?= BASE_URL . $wink["profileImage"] ?>"
                                                  alt="<?= $wink["first_name"] . " " . $wink["last_name"] ?>">
+                                            </a>
                                         </div>
                                         <div class="col-7 pl-1">
                                             <div class="wink__name">

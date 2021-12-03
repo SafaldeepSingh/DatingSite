@@ -5,7 +5,7 @@ class Wink
 {
     static function getWinks($userId){
         //get winks
-        $query = "SELECT wink.sent_at,u.first_name,u.last_name,p.path as profileImage 
+        $query = "SELECT wink.sent_at,u.first_name,u.ID,u.last_name,p.path as profileImage 
                         FROM wink
                     join user u on wink.sender_id = u.ID
                     join photo p on u.profile_photo_id = p.ID
@@ -26,7 +26,7 @@ class Wink
     }
     static function getWinksRead($userId,$userData){
         //Get winks
-        $query = "SELECT 'saw your wink' as detailMessage, 'wink' as type, wink.seen_at,u.first_name,u.last_name,p.path as profileImage 
+        $query = "SELECT 'saw your wink' as detailMessage, 'wink' as type, wink.seen_at,u.ID,u.first_name,u.last_name,p.path as profileImage 
                         FROM wink
                     join user u on wink.receiver_id = u.ID
                     join photo p on u.profile_photo_id = p.ID

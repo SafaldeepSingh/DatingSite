@@ -3,7 +3,7 @@ require_once "Database.php";
 class Favourite
 {
     static function getAddedOrRemovedNotification($userId,$userData){
-        $query = "SELECT 'favourite' as type, user_favourite.*,u.first_name,u.last_name,p.path as profileImage 
+        $query = "SELECT 'favourite' as type, user_favourite.*,u.ID,u.first_name,u.last_name,p.path as profileImage 
                         from user_favourite
                     join user u on u.ID = user_favourite.user_id
                     join photo p on u.profile_photo_id = p.ID
