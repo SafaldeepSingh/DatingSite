@@ -76,9 +76,8 @@ $recentChats = Messages::getRecentChats($userId);
         <div class="col-5 col-xl-4">
             <div class="row toolbar">
                 <div class="col-2 square-img">
-                    <!--                    TODO profile link-->
                     <a class="toolbar__heading" href="../Home-Pages/edit-profile.php">
-                        <img class="img-fluid img-round" src="<?= BASE_URL . $userData["profileImage"] ?>" alt="">
+                        <img class="img-fluid img-round" src="<?=BASE_URL.$userData["profileImage"]?>" alt="">
                     </a>
                 </div>
                 <div class="col-6 toolbar__text my-auto">
@@ -242,20 +241,8 @@ $recentChats = Messages::getRecentChats($userId);
                     <?php
                     $conversationDay = null;
                     foreach ($conversation as $index => $message) {
-                        $messageDay = date("l", strtotime($message["sent_at"]));
-                        $messageDate = date("D,M j", strtotime($message["sent_at"]));
-                        $messageDayNumber = date("z", strtotime($message["sent_at"]));
-                        $currentDayNumber = date("z", time());
-                        if ($messageDay != $conversationDay) {
-                            if($currentDayNumber - $messageDayNumber == 0)
-                                $conversationDay = "Today";
-                            else if($currentDayNumber - $messageDayNumber == 1)
-                                $conversationDay = "Yesterday";
-                            else if ($currentDayNumber - $messageDayNumber < 7)
-                                $conversationDay = $messageDay;
-                            else
-                                $conversationDay = $messageDate;
-
+                        if ($conversationDay != Messages::getConversationDay($message["sent_at"])) {
+                            $conversationDay = Messages::getConversationDay($message["sent_at"]);
 
                             ?>
                             <div class="col-12 conversation-day text-center">
@@ -293,7 +280,7 @@ $recentChats = Messages::getRecentChats($userId);
                         <?php } ?>
                     <?php } ?>
                 </div>
-                <form action="<?= $_SERVER["PHP_SELF"] ?>">
+                <form action="<?= $_SERVER["PHP_SELF"] ?>#lastMessage">
                     <div class="row send-message__panel">
                         <input type="hidden" name="chat" value="<?= $chatId ?>">
                         <div class="col-10">
@@ -303,7 +290,10 @@ $recentChats = Messages::getRecentChats($userId);
                         ></textarea>
                         </div>
                         <div class="col-2 px-0 my-auto">
-                            <input type="submit" class="btn btn__send-message" value="SEND">
+                            <button type="submit" class="btn btn__send-message">
+                                <i class="fas fa-paper-plane"></i>
+                                SEND
+                            </button>
                         </div>
                     </div>
                 </form>

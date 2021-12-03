@@ -28,6 +28,23 @@ class Messages
     static function hasUnreadMessage($lastMessage,$userId):bool{
         return $lastMessage["sender_id"]!=$userId && !$lastMessage["seen_at"];
     }
+    static function getConversationDay($date): string{
+        date_default_timezone_set("America/Toronto");
+        $messageDay = date("l", strtotime($date));
+        $messageDate = date("D,M j", strtotime($date));
+        $messageDayNumber = date("z", strtotime($date));
+        $currentDayNumber = date("z", strtotime("now"));
+
+        if($currentDayNumber - $messageDayNumber == 0)
+            return "Today";
+        else if($currentDayNumber - $messageDayNumber ==1)
+            return "Yesterday";
+        else if($currentDayNumber - $messageDayNumber < 7)
+            return $messageDay;
+        else
+            return $messageDate;
+    }
+
 
     private static function sortRecentChats($a, $b)
     {
