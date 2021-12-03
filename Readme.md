@@ -10,7 +10,8 @@
  - Wink
  - Favourite List
  - Notifications(Wink seen,Added/Removed from Favourites)**(only for premium user)**
-#Inital Setup 
+
+# Inital Setup 
 1. **Changes to be done in "shared/constants.php"** 
    - change the "BASE_URL" to path of your project folder on server
        Eg:- project is in "htdocs/ignite", Then BASE_URL = "/ignite/"
