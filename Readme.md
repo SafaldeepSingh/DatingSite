@@ -1,7 +1,6 @@
 [Github URL](https://github.com/SafaldeepSingh/DatingSite)
 # Contributors
 ## Rohith Kumar Pothuganti 
-@github/Rohith944000
  - Login
  - Sign Up
  - Search
